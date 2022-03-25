@@ -49,7 +49,7 @@ class cursoController extends Controller
         $cursito = new curso();
         // esto me permitira manipular la tabla
         $cursito->nombre = $request->input('nombre');
-        $cursito->description = $request->input('descripcioncurso');
+        $cursito->description = $request->input('description');
 
         if($request->hasFile('direccionImagen')){
             $cursito->imagen =$request->file('direccionImagen')->store('public');
@@ -83,7 +83,10 @@ class cursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cursito = curso::find($id);
+        return view('cursos.edit', compact('cursito'));
+        //return $cursito;
+
     }
 
     /**
@@ -95,7 +98,18 @@ class cursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // con fill lleno todos campos de la tabla cursos
+        //cpm la info que viene desde el request
+        // exepto lo que viene desde el input llamado imagen
+        $cursito = curso::find($id);
+
+        $cursito -> fill($request->except('imagen'));
+        if($request->hasFile('direccionImagen')){
+            $cursito->imagen =$request->file('direccionImagen')->store('public');
+        }
+        $cursito->save();
+        return ('actualizado');
+
     }
 
     /**

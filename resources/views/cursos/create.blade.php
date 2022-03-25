@@ -14,7 +14,7 @@
    </div>
    <div class="form-group">
        <label for="descripcioncurso">Descripción del curso</label>
-       <input  name="descripcioncurso" class="form-control" id="descripcioncurso" >
+       <input  name="descriptionq" class="form-control" id="descripcioncurso" >
    </div>
    <div class="form-group">
     <label for="direccionImagen">Cargar imagen</label>
