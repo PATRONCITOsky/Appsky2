@@ -40,7 +40,33 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*implementamos validaciones
+        $validacionDatos = $request->validate([
+            'nombre'=>'required|max:10',
+            //'description'=>'required|max:250',
+            'direccionImagen'=>'required|image'
+        ]);*/
+
+
+        //con el método all() veo toda la información
+        //return $request->all();
+        /*obtuvimos el dato de lo que el usuario envia por el input
+        cuyo name es 'nombre'*/
+        //return $request->input('nombre');
+        //cremos una nueva instancia del modelo
+        $cursito = new docente();
+        // esto me permitira manipular la tabla
+        $cursito->nombre = $request->input('nombre');
+        $cursito->apellidos = $request->input('apellidos');
+        $cursito->titulo = $request->input('titulo');
+        $cursito->cursoAsociado = $request->input('cursoAsociado');
+
+        if($request->hasFile('foto')){
+            $cursito->foto =$request->file('foto')->store('public');
+        }
+
+        $cursito->save();
+        return 'Se guardo';
     }
 
     /**
@@ -51,7 +77,11 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-        //
+        //creo un array con información del registro
+        //del id que viajó en la solicitud
+        $cursito = docente::find($id);
+        //asocia el array al view usando compact
+        return view('docentes.show',compact('cursito'));
     }
 
     /**
@@ -62,7 +92,9 @@ class DocenteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cursito = docente::find($id);
+        return view('docentes.edit', compact('cursito'));
+        //return $cursito;
     }
 
     /**
@@ -74,7 +106,17 @@ class DocenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // con fill lleno todos campos de la tabla cursos
+        //cpm la info que viene desde el request
+        // exepto lo que viene desde el input llamado imagen
+        $cursito = docente::find($id);
+
+        $cursito -> fill($request->except('foto'));
+        if($request->hasFile('foto')){
+            $cursito->foto =$request->file('foto')->store('public');
+        }
+        $cursito->save();
+        return ('actualizado');
     }
 
     /**

@@ -28,11 +28,20 @@
    </div>
    <div class="form-group">
        <label for="apellidodocente">Apellido del docente</label>
-       <input  name="apellido" class="form-control" id="apellidodocente" >
+       <input  name="apellidos" class="form-control" id="apellidodocente" >
    </div>
    <div class="form-group">
-    <label for="direccionImagen">Cargar imagen</label>
-    <input  type="file" name="direccionImagen"  id="direccionImagen" >
+    <label for="titulodocente">Titulo</label>
+    <input  name="titulo" class="form-control" id="titulododocente" >
+    </div>
+    <div class="form-group">
+        <label for="cursodocente">Curso Asignado</label>
+        <input  name="cursoAsociado" class="form-control" id="cursodocente" >
+    </div>
+
+   <div class="form-group">
+    <label for="direccionImagen">Cargar Foto</label>
+    <input  type="file" name="foto"  id="foto" >
 </div>
    <button name="descripcion" type="submit" class="btn btn-info">Crear</button>
 </form>

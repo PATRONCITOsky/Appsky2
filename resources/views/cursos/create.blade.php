@@ -11,7 +11,7 @@
 
    @if ($errors->any())
         @foreach ( $errors->all() as $alert )
-            
+
             <div class="alert alert-danger" role="alert">
                 <ul>
                     <li>{{$alert}}</li>
@@ -28,7 +28,7 @@
    </div>
    <div class="form-group">
        <label for="descripcioncurso">Descripción del curso</label>
-       <input  name="descriptionq" class="form-control" id="descripcioncurso" >
+       <input  name="description" class="form-control" id="descripcioncurso" >
    </div>
    <div class="form-group">
     <label for="direccionImagen">Cargar imagen</label>

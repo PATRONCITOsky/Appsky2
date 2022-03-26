@@ -21,11 +21,12 @@
 
                     <img  style=" height: 100px; width:200px; margin-top:30px;" src="{{ Storage::url ($hoover->foto) }}" class="card-img-top mx-auto d-block" alt="" >
                     <div class="card-body">
-                        <h5 class="card-title">{{ $hoover->nombre }}</h5>
-                        <p class="card-text">ID {{ $hoover->apellidos }}</p>
-
+                        <h5 class="card-title">Nombre: {{ $hoover->nombre }}</h5>
+                        <p class="card-text">Apellidos: {{ $hoover->apellidos }}</p>
+                        <p class="card-text">Titulo: {{ $hoover->titulo }}</p>
+                        <p class="card-text">Curso Asociado: {{ $hoover->cursoAsociado }}</p>
                         {{--Se necesita el id para ver un registro en particular--}}
-                        <a href="/cursos/{{$hoover->id}}" class="btn btn-success">Acceder</a>
+                        <a href="/docentes/{{$hoover->id}}" class="btn btn-success">Acceder</a>
                     </div>
                 </div>
 
