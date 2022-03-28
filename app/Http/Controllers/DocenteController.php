@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\storeDocentesRequest;
 use App\Models\docente;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class DocenteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(storeDocentesRequest $request)
     {
         /*implementamos validaciones
         $validacionDatos = $request->validate([
