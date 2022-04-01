@@ -63,7 +63,7 @@ class DocenteController extends Controller
         $cursito->cursoAsociado = $request->input('cursoAsociado');
 
         if($request->hasFile('foto')){
-            $cursito->foto =$request->file('foto')->store('public');
+            $cursito->foto =$request->file('foto')->store('public/docentes');
         }
 
         $cursito->save();
@@ -128,6 +128,17 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cursito = docente::find($id);
+        //return $cursito;
+        $urlImagenBD = $cursito->foto;
+        //return $urlImagenBD;
+
+        $nombreImagen = str_replace('public/docentes/','\storage\docentes\\',$urlImagenBD);
+        //return $nombreImagen;
+        //*$rutaCompleta = public_path().$nombreImagen;
+        //eturn $rutaCompleta;
+        //*unlink($rutaCompleta);
+        //*$cursito -> delete();
+        return $nombreImagen;
     }
 }

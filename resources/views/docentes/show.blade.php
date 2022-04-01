@@ -11,6 +11,13 @@
 
             </div>
             <a href="/docentes/{{$cursito->id}}/edit" class="btn btn-success">Editar Curso</a>
+            <br>
+            <br>
+            <form class="form-group" action="/docentes/{{$cursito->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
         </div>
 
 @endsection

@@ -60,6 +60,8 @@ class cursoController extends Controller
         // esto me permitira manipular la tabla
         $cursito->nombre = $request->input('nombre');
         $cursito->description = $request->input('description');
+        $cursito->horas = $request->input('horas');
+
 
         if($request->hasFile('direccionImagen')){
             $cursito->imagen =$request->file('direccionImagen')->store('public');
@@ -130,6 +132,18 @@ class cursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cursito = curso::find($id);
+        //return $cursito;
+        $urlImagenBD = $cursito->imagen;
+        //return $urlImagenBD;
+
+        $nombreImagen = str_replace('public/','\storage\\',$urlImagenBD);
+        //return $nombreImagen;
+        $rutaCompleta = public_path().$nombreImagen;
+        //eturn $rutaCompleta;
+        unlink($rutaCompleta);
+        $cursito -> delete();
+        return 'Eliminado';
+
     }
 }

@@ -31,6 +31,10 @@
        <input  name="description" class="form-control" id="descripcioncurso" >
    </div>
    <div class="form-group">
+    <label for="duracioncurso">Duracion del curso</label>
+    <input  name="horas"  type="number" min="1" class="form-control" id="horascurso" >
+</div>
+   <div class="form-group">
     <label for="direccionImagen">Cargar imagen</label>
     <input  type="file" name="direccionImagen"  id="direccionImagen" >
 </div>

@@ -7,7 +7,7 @@
         <link rel="icon" href="https://img.pixers.pics/pho_wat(s3:700/FO/33/04/38/20/700_FO33043820_1e6678fbb526ce4a652723a84836a088.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/vinilos-fuego-letra-h.jpg.jpg">
         <title>Vista de registros</title>
     </head>
-    <body>
+    <body style="background-image: url('storage/playa.jpg'); background-position: center center; background-attachment: fixed; background-size: cover; background-repeat: no-repeat;">
         {{--Al llamar un elemento por su nombre desde otra página
             podremos implementar la plantilla--}}
         {{--@section('barralateral')

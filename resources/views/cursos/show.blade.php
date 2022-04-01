@@ -7,8 +7,16 @@
                 class="card-img-top mx-auto d-block" alt="">
             <div class="card-body ">
                 <p class="card-text">{{ $cursito->description }}</p>
+                <p class="card-text">{{ $cursito->horas }}</p>
             </div>
-            <a href="/cursos/{{$cursito->id}}/edit" class="btn btn-success">Editar Curso</a>
+            <a href="/cursos/{{$cursito->id}}/edit" class="btn btn-success">Editar Curso</a><br>
+            <br>
+            <form class="form-group" action="/cursos/{{$cursito->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+
         </div>
 
 @endsection
